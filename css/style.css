@@ -5,9 +5,10 @@
 * {
 	margin: 0;
   padding: 0;
+  -webkit-overflow-scrolling: touch;
 }
 body {
-	font-family:  "游明朝体", "Yu Mincho", YuMincho, "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ ゴシック", sans-serif;;
+	font-family:  "游明朝体", "Yu Mincho", YuMincho, serif;
 	line-height: 24px;
   color: #000000;
   font-size: 14px;
@@ -24,6 +25,7 @@ ul {
 }
 .visibiliry-hidden {
   visibility:hidden;
+  pointer-events: none;
 }
 /*スクロールバー全体*/
 ::-webkit-scrollbar {
@@ -436,6 +438,25 @@ h5 span {
   list-style-type: decimal;
   list-style-position: outside;
 }
+.contact-us {
+  margin-top: 30px;
+}
+.contact-us-mail {
+  margin-right: auto !important;
+  right: auto !important;
+  margin-left: auto !important;
+  font-size: 12px !important;
+  border: none !important;
+  background: none !important;
+  line-height: 1em !important;
+  padding: 0 !important;
+  position: relative !important;
+  top: auto !important;
+  transition: .3s;
+}
+.contact-us-mail:hover {
+  color: #3CC3F5;
+}
 #tel-fax {
   font-size: 18px;
   font-weight: 200;
@@ -685,9 +706,9 @@ footer {
   }
   .logo-text-img {
     display: block;
-    padding-left: 25px;
-    margin: 0;
-    width: 252px;
+    margin-left: 25px;
+    margin-top: 25px;
+    width: 230px;
   }
   .bookmark {
     display: none;
@@ -695,7 +716,6 @@ footer {
   .page-number {
     display: none;
   }
-  
 	/*------------------------------
 ハンバーガーメニューに関するCSS
 ------------------------------*/
@@ -772,9 +792,11 @@ footer {
 		transition: 0.5s;
     text-align: center;
     opacity: 0;
+    overflow: auto;
 	}
 	.drawer-list {
-		list-style: none;
+    list-style: none;
+    overflow: auto;
 	}
 	.drawer-item {
 		border-bottom: 1px #c8c8c8 solid;
@@ -805,25 +827,24 @@ footer {
     opacity: 1;
 	}
 	.logo-drawer {
-		margin: 100px auto 0 auto;
+		margin: 70px auto 10px auto;
 		width: 50px;
 	}
 	.sub-title-drawer {
-		margin-top: 55px;
-		margin-bottom: 35px;
+		margin-top: 15px;
+		margin-bottom: 5px;
 		font-size: 19px;
     font-weight: 400;
 	}
 	.copyright-drawer {
-		margin: 0 auto 18px auto;
+		margin: 20px auto 50px auto;
 		font-size: 10px;
 		line-height: 2em;
 		letter-spacing: 0.07em;
-		position: absolute;
-		bottom: 60px;
+		position: relative;
+		bottom: auto;
 		left: 0;
 		right: 0;
-		margin: auto;
 	}
 
   /* 左テキスト部（メイン）*/
