@@ -21,7 +21,8 @@ a {
   display: flex;
 }
 ul {
-	padding-inline-start: 0px;
+	-webkit-padding-start: 0px;
+	        padding-inline-start: 0px;
 }
 .visibiliry-hidden {
   visibility:hidden;
@@ -112,8 +113,18 @@ box-shadow:0 0 0 1px rgba(255, 255, 255, .2);
 }
 .current {
   color: #3CC3F5;
-  animation-name: turn-blue;
-  animation-duration: 1.2s;
+  -webkit-animation-name: turn-blue;
+          animation-name: turn-blue;
+  -webkit-animation-duration: 1.2s;
+          animation-duration: 1.2s;
+}
+@-webkit-keyframes turn-blue {
+  from {
+    color: #000000;
+  }
+  to {
+    color: #3CC3F5;
+  }
 }
 @keyframes turn-blue {
   from {
@@ -142,12 +153,15 @@ box-shadow:0 0 0 1px rgba(255, 255, 255, .2);
   position: relative;/*←相対位置*/
   width: 100%;
   height: 100vh;
+  overflow: auto;
 }
 /* ヘッダー*/
 header {
   height: 80px;
   width: calc(100vw - 219px);
   position: fixed;
+  top: 0;
+  right: 0;
   text-align: right;
   background:rgba(255, 255, 255, .9);
   z-index: 500;
@@ -217,7 +231,16 @@ header {
   justify-content: center;
 }
 .contents-all-index {
-  animation: fadeIn 4s ease 0s 1 normal;
+  -webkit-animation: fadeIn 4s ease 0s 1 normal;
+          animation: fadeIn 4s ease 0s 1 normal;
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 @keyframes fadeIn {
   0% {
@@ -317,7 +340,7 @@ header {
   display: grid;
   max-width: 880px;
   grid-template-columns: 1fr 1fr;
-  gap: 50px;
+  grid-gap: 50px;
   margin-top: 42px;
 }
 h5 {
@@ -379,6 +402,7 @@ h5 span {
   line-height: 20px;
   text-align: left;
   white-space: nowrap;
+  font-weight: 400;
 }
 .practices-for-portlate p span {
   font-size: 12px;
@@ -433,13 +457,26 @@ h5 span {
 .privacy-policy:hover {
   color: #3CC3F5;
 }
-.privacy-policy-modal {
+#privacy-policy-textbox {
+  max-width: 635px;
+  margin: 47px auto 150px auto;
+}
+#js-modal-close-privacy {
+  margin-right: auto;
+  right: auto;
+  margin-left: 590px;
+}
+.privacy-policy-list {
   margin-top: 20px;
   list-style-type: decimal;
   list-style-position: outside;
 }
+#privacy-policy-textbox h1 {
+  margin-top: 0;
+}
 .contact-us {
   margin-top: 30px;
+  padding-bottom: 150px;
 }
 .contact-us-mail {
   margin-right: auto !important;
@@ -511,6 +548,7 @@ footer {
   justify-content: space-between;
   align-items: center;
   bottom: 0;
+  right: 0;
   background: rgba(255, 255, 255, .9);
   z-index: 500;
 }
@@ -570,8 +608,7 @@ footer {
   background-color: white;
   z-index: 9998;
   pointer-events: none;/* 他の要素にアクセス可能にするためにポインターイベントは無効に */
-  opacity: 0; 
-  -webkit-transition: opacity .6s ease;  /* アニメーション時間は 0.8秒 */
+  opacity: 0;  /* アニメーション時間は 0.8秒 */
   transition: opacity .6s ease;
 }
 #page-animate::after {
@@ -584,8 +621,7 @@ footer {
   background-color:#fff;  /* 背景カラー */
   z-index: 9998;  /* 一番手前に */
   pointer-events: none;  /* 他の要素にアクセス可能にするためにポインターイベントは無効に */
-  opacity: 0;  /* 初期値 : 透過状態 */
-  -webkit-transition: opacity 1.2s ease;  /* アニメーション時間は 0.8秒 */
+  opacity: 0;  /* 初期値 : 透過状態 */  /* アニメーション時間は 0.8秒 */
   transition: opacity 1.2s ease;
 }
 #page-animate.is-slide-in::before {
@@ -669,6 +705,9 @@ footer {
 }
 .modal__content ul {
   margin-top: 10px;
+}
+.modal-textbox ul:last-child {
+  padding-bottom: 150px;
 }
 .modal__content li {
   font-size: 12px;
@@ -921,6 +960,7 @@ footer {
   }
   #text-box-practice {
     grid-template-columns: 1fr;
+    -ms-grid-columns: 1fr;
   }
   .grid-members {
     gap: 20px;
@@ -933,6 +973,7 @@ footer {
   }
   .grid-members {
     grid-template-columns: 1fr;
+    -ms-grid-columns: 1fr;
   }
   /* スマホ用モーダル */
   .modal{
@@ -999,6 +1040,18 @@ footer {
     max-height: 100%;
     height: auto;
   }
+  #privacy-policy-textbox {
+    max-width: 80%;
+    height: 100%;
+  }
+  #js-modal-close-privacy {
+    margin-left: auto;
+    right: 0;
+    margin-right: 10vw;
+  }
+  .contact-us {
+    padding-bottom: 120px;
+  }
 	/* 右イラスト部*/
 	.illust-content {
     display: none;
@@ -1019,21 +1072,21 @@ footer {
     display: none;
   }
 	.next-page a {
-    font-size: 10px;
+    font-size: 9px;
   }
   .text-arrow-right {
-    font-size: 15px;
+    font-size: 12px;
     vertical-align: -1px;
   }
   .previous-page{
     position: absolute;
-    right: 110px;
+    right: 100px;
   }
 	.previous-page a {
-    font-size: 10px;
+    font-size: 9px;
   }
   .text-arrow-left {
-    font-size: 15px;
+    font-size: 12px;
     vertical-align: -1px;
   }
 
@@ -1048,8 +1101,7 @@ footer {
     background-color: white;
     z-index: 9998;
     pointer-events: none;/* 他の要素にアクセス可能にするためにポインターイベントは無効に */
-    opacity: 0; 
-    -webkit-transition: opacity .6s ease;  /* アニメーション時間は 0.8秒 */
+    opacity: 0;  /* アニメーション時間は 0.8秒 */
     transition: opacity .6s ease;
   }
   #page-animate::after {
@@ -1062,8 +1114,7 @@ footer {
     background-color:#fff;  /* 背景カラー */
     z-index: 10;  /* 一番手前に */
     pointer-events: none;  /* 他の要素にアクセス可能にするためにポインターイベントは無効に */
-    opacity: 0;  /* 初期値 : 透過状態 */
-    -webkit-transition: opacity 1.2s ease;  /* アニメーション時間は 0.8秒 */
+    opacity: 0;  /* 初期値 : 透過状態 */  /* アニメーション時間は 0.8秒 */
     transition: opacity 1.2s ease;
   }
   #page-animate.is-slide-in::before {
@@ -1077,11 +1128,10 @@ footer {
 }
 
 /* ハイブリッドレイアウト（750px以上ポートレイト）-------------- */
-@media (min-width: 750px) and (orientation: portrait), (min-width: 750px) and (max-width: 890px) {
+@media (min-width: 750px) and (orientation: portrait), (min-width: 750px) and (max-width: 1160px) {
   .contents-main{
     display: flex;
     justify-content: center;
-    overflow: auto;
   }
   .content {
     margin: 0;
@@ -1107,13 +1157,14 @@ footer {
 }
   .grid-members {
     grid-template-columns: 1fr;
+    -ms-grid-columns: 1fr;
   }
   .text-content-team {
     max-width: 100%;
     margin-right: 0;
     margin-left: 0;
     position: relative;
-    margin-top: 0px;
+    margin-top: 107px;
 }
 .text-content-team h2, .text-content-team h3, .text-content-team h4, .text-content-team p {
   max-width: 100%;
@@ -1159,7 +1210,7 @@ footer {
     display: none;
     height: 100%;
     position: fixed;
-    top: 60px;
+    top: 80px;
     width: calc(100vw - 218px);
     left: 218;
   }
@@ -1219,6 +1270,11 @@ footer {
     width: 100%;
     height: auto;
     margin: 20px auto;
+  }
+  #js-modal-close-privacy {
+    margin-left: auto;
+    right: 0;
+    margin-right: calc((100vw - 218px) * .1);
   }
 	/* 右イラスト部*/
 	.illust-content {
@@ -1240,12 +1296,13 @@ footer {
 @media (min-width: 750px) and (max-width: 1160px) {
   .grid-members {
     grid-template-columns: 1fr;
+    -ms-grid-columns: 1fr;
   }
   .modal{
     display: none;
     height: 100%;
     position: fixed;
-    top: 60px;
+    top: 80px;
     width: calc(100vw - 218px);
     left: 218;
   }
@@ -1256,7 +1313,6 @@ footer {
     top: auto;
     width: 100%;
     overflow: auto;
-    height: 100%;
     max-height: 100%;
     max-width: 100%;
     min-height: auto;
@@ -1306,10 +1362,6 @@ footer {
     height: auto;
     margin: 20px auto;
   }
-	/* 右イラスト部*/
-	.illust-content {
-    display: none;
-  }
 }
 /* ごく一部のモーダルCloseボタン位置調整 */
 @media (min-width: 1015px) and (orientation: portrait) {
@@ -1318,4 +1370,115 @@ footer {
     right: auto;
     margin-left: 600px;
   }
+  #js-modal-close-privacy {
+    margin-right: 0;
+    right: auto;
+    margin-left: 590px;
+  }
 }
+
+/* IE専用CSS */
+
+/* タイトルロゴのずれ */
+_:-ms-lang(x)::-ms-backdrop, .index-logo {
+  margin: 200px 0 0 0;
+}
+/* イラストのゆがみとそれに伴うメインコンテントの崩れ */
+_:-ms-lang(x)::-ms-backdrop, .illust-content img {
+  max-width: 458px; 
+}
+
+@media (max-width: 750px) {
+  /* スマホレイアウトでのPreviousボタンのずれ */
+  _:-ms-lang(x)::-ms-backdrop, .previous-page {
+    bottom: 8px;
+  }
+  /* スマホレイアウトでてテキストロゴが消える問題 */
+  _:-ms-lang(x)::-ms-backdrop, .logo-text-img {
+    height: 12px;
+  }
+  /* スマホレイアウトで上のマージンが消える問題 */
+  _:-ms-lang(x)::-ms-backdrop, .text-content {
+    margin-top: 107px;
+  }
+}
+
+/* チームメイトページのグリッド */
+_:-ms-lang(x)::-ms-backdrop, .grid-members {
+  display: flex;
+  flex-wrap: wrap;
+}
+_:-ms-lang(x)::-ms-backdrop, .member {
+  margin-right: 50px;
+  margin-bottom: 50px;
+}
+_:-ms-lang(x)::-ms-backdrop, .modal {
+  justify-content: center;
+}
+_:-ms-lang(x)::-ms-backdrop, .modal__content {
+  position: relative;
+  justify-content: center;
+}
+@media (max-width: 1160px) {
+  _:-ms-lang(x)::-ms-backdrop, .grid-members {
+    display: block;
+  }
+  _:-ms-lang(x)::-ms-backdrop, .member {
+    margin-right: 0;
+    width: 100%;
+  }
+  _:-ms-lang(x)::-ms-backdrop, .member img {
+    max-width: 100%;
+  }
+  _:-ms-lang(x)::-ms-backdrop, .text-content-team {
+    width: 100%;
+    margin-top: 107px;
+  }
+  _:-ms-lang(x)::-ms-backdrop, .name-detail {
+    width: 100%;
+    max-width: 100%;
+  }
+  _:-ms-lang(x)::-ms-backdrop, .text-wrapper {
+    margin-top: 0;
+  }
+  _:-ms-lang(x)::-ms-backdrop,.text-content-team h2, .text-content-team h3, .text-content-team h4, .text-content-team p {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+@media (max-width: 750px) {
+  _:-ms-lang(x)::-ms-backdrop, .modal-textbox {
+    width: 80vw;
+    max-height: 100%;
+  }
+  _:-ms-lang(x)::-ms-backdrop, .modal-textbox img {
+    max-width: 100%;
+    height: auto;
+    max-height: none;
+  }
+}
+
+
+/* 業務内容ページグリッド */
+_:-ms-lang(x)::-ms-backdrop,#text-box-practice {
+  display: flex;
+}
+_:-ms-lang(x)::-ms-backdrop, .text-box-practice-column {
+  margin-right: 100px;
+  height: 100%;
+  display: block;
+}
+_:-ms-lang(x)::-ms-backdrop, .text-content-practices {
+  width: 100%;
+}
+@media (max-width: 1200px) {
+  _:-ms-lang(x)::-ms-backdrop,#text-box-practice {
+    flex-direction: column;
+  }
+}
+@media (max-width: 750px) {
+  _:-ms-lang(x)::-ms-backdrop, .text-content-practices {
+    margin-top: 107px;
+  }
+}
+
