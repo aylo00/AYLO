@@ -632,7 +632,18 @@ footer {
   right: 0;
   opacity: 1;/* 後半初期値 */
 }
-
+/* ページ移動時の現在ページリンク青→黒フェード効果 */
+.blue-to-black {
+  animation: color-change 1s ease;
+}
+@keyframes color-change {
+  0% {
+    color: #3CC3F5;
+  }
+  100% {
+    color: black;
+  }
+}
 /* モーダルウィンドウ */
 .modal{
   display: none;

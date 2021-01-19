@@ -14,9 +14,10 @@ $(function() {
  
     if (url !== '') {
       $('body').addClass('is-slide-in'); // 画面遷移前のアニメーション is-slide-in
+      $('.current').addClass('blue-to-black'); // 現在ページリンクの青を黒にフェード
  
       setTimeout(function () {
-        window.location = url;  // 0.7秒後に取得したURLに遷移
+        window.location = url;  // 0.6秒後に取得したURLに遷移
       }, 600);
     }
     return false;
