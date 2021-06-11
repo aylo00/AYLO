@@ -27,6 +27,9 @@ ul {
 .visibiliry-hidden {
   visibility:hidden;
   pointer-events: none;
+}  
+.br-sm {
+  display: none;
 }
 /*スクロールバー全体*/
 ::-webkit-scrollbar {
@@ -726,8 +729,23 @@ footer {
   text-indent:-1em;
   padding-left:1em;
 } 
-
-
+.ex-link {
+  /* text-decoration: underline; */
+  color: rgb(88, 88, 88);
+  transition: .3s;
+  font-size: 12px !important;
+  /* border: none !important; */
+  border-top: none!important;
+  border-right: none!important;
+  border-left: none!important;
+  border-bottom: 1px solid #c8c8c8 !important;
+  padding: 0 !important;
+  word-wrap: break-all;
+}
+.ex-link:hover {
+  color: #3CC3F5;
+  border-bottom: 1px solid #3CC3F5!important;
+}
 
 /* ------------------------------- */
 /* ---メディアクエリ-------------- */
@@ -737,6 +755,9 @@ footer {
 @media (max-width: 750px) {
   body {
     overflow-x: hidden;
+  }
+  .br-sm {
+    display: block;
   }
 	.contents-all {
     display: block;
