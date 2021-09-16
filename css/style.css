@@ -730,11 +730,9 @@ footer {
   padding-left:1em;
 } 
 .ex-link {
-  /* text-decoration: underline; */
   color: rgb(88, 88, 88);
   transition: .3s;
   font-size: 12px !important;
-  /* border: none !important; */
   border-top: none!important;
   border-right: none!important;
   border-left: none!important;
@@ -985,7 +983,7 @@ footer {
 	.text-wrapper {
 		margin: 107px auto 0 auto;
 		width: 100%;
-		padding-bottom: 50px;
+		padding-bottom: 100px;
   }
   .text-wrapper p {
     font-size: 13px;
